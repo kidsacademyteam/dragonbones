@@ -1117,7 +1117,7 @@ import dragonBones.textures.TextureData;
 	 * @private
 	 */
 	private var skinSlotData(get, never):SkinSlotData;
-	private function get_skinSlotData(): SkinSlotData 
+	public function get_skinSlotData(): SkinSlotData 
 	{
 		return _skinSlotData;
 	}
