@@ -267,10 +267,10 @@ import dragonBones.textures.TextureData;
 		
 		if (displayIndex >= 0) 
 		{
-			var displayList:Vector<Object> = slot.displayList; // Copy.
+			var displayList:Array<Dynamic> = slot.displayList; // Copy.
 			if (displayList.length <= displayIndex) 
 			{
-				displayList.length = displayIndex + 1;
+				displayList.resize(displayIndex + 1);
 			}
 			
 			if (slot._replacedDisplayDatas.length <= displayIndex) 
@@ -699,7 +699,7 @@ import dragonBones.textures.TextureData;
 			{
 				var slots:Vector<Slot> = toArmature.getSlots();
 				var l:UInt = slots.length;
-				var toSlot:Slot, toSlotDisplayList:Vector<Dynamic>, lA:UInt, toDisplayObject:Dynamic, displays:Vector<DisplayData>, fromDisplayData:DisplayData;
+				var toSlot:Slot, toSlotDisplayList:Array<Dynamic>, lA:UInt, toDisplayObject:Dynamic, displays:Vector<DisplayData>, fromDisplayData:DisplayData;
 				for (i in 0...l)
 				{
 					toSlot = slots[i];

@@ -123,7 +123,7 @@ import dragonBones.textures.TextureData;
 	/**
 	 * @private
 	 */
-	private var _displayList:Vector<Object> = new Vector<Object>();
+	private var _displayList:Array<Object> = new Array<Object>();
 	/**
 	 * @private
 	 */
@@ -194,7 +194,7 @@ import dragonBones.textures.TextureData;
 	{
 		super._onClear();
 		
-		var disposeDisplayList:Vector<Object> = new Vector<Object>();
+		var disposeDisplayList:Array<Object> = new Array<Object>();
 		var l:UInt = _displayList.length;
 		var eachDisplay:Dynamic;
 		for (i in 0...l)
@@ -258,7 +258,7 @@ import dragonBones.textures.TextureData;
 		_colorTransform.greenOffset = 0;
 		_colorTransform.blueOffset = 0;
 		_ffdVertices.length = 0;
-		_displayList.length = 0;
+		_displayList.resize(0);
 		_textureDatas.length = 0;
 		_replacedDisplayDatas.length = 0;
 		_meshBones.length = 0;
@@ -911,13 +911,13 @@ import dragonBones.textures.TextureData;
 	/**
 	 * @private
 	 */
-	private function _setDisplayList(value:Vector<Object>):Bool
+	private function _setDisplayList(value:Array<Object>):Bool
 	{
 		if (value != null && value.length != 0)
 		{
 			if (_displayList.length != value.length)
 			{
-				_displayList.length = value.length;
+				_displayList.resize(value.length);
 			}
 			
 			var l:UInt = value.length;
@@ -936,7 +936,7 @@ import dragonBones.textures.TextureData;
 		}
 		else if (_displayList.length > 0)
 		{
-			_displayList.length = 0;
+			_displayList.resize(0);
 		}
 		
 		if (_displayIndex >= 0 && _displayIndex < _displayList.length)
@@ -1170,15 +1170,15 @@ import dragonBones.textures.TextureData;
 	 * 包含显示对象或子骨架的显示列表。
 	 * @version DragonBones 3.0
 	 */
-	public var displayList(get, set):Vector<Object>;
-	private function get_displayList():Vector<Object>
+	public var displayList(get, set):Array<Object>;
+	private function get_displayList():Array<Object>
 	{
-		return _displayList.concat();
+		return _displayList.concat([]);
 	}
-	private function set_displayList(value:Vector<Object>):Vector<Object>
+	private function set_displayList(value:Array<Object>):Array<Object>
 	{
-		var backupDisplayList:Vector<Object> = _displayList.concat();
-		var disposeDisplayList:Vector<Object> = new Vector<Object>();
+		var backupDisplayList:Array<Object> = _displayList.concat([]);
+		var disposeDisplayList:Array<Object> = new Array<Object>();
 		var eachDisplay:Dynamic;
 		
 		if (_setDisplayList(value))
@@ -1243,10 +1243,10 @@ import dragonBones.textures.TextureData;
 		}
 		else
 		{
-			var replaceDisplayList:Vector<Object> = displayList; // copy
+			var replaceDisplayList:Array<Object> = displayList; // copy
 			if (displayListLength <= _displayIndex)
 			{
-				replaceDisplayList.length = _displayIndex + 1;
+				replaceDisplayList.resize(displayIndex + 1);
 			}
 			
 			replaceDisplayList[_displayIndex] = value;

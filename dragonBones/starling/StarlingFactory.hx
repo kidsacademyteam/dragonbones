@@ -141,7 +141,7 @@ import starling.rendering.VertexData;
 	{
 		var slot:StarlingSlot = cast BaseObject.borrowObject(StarlingSlot);
 		var slotData:SlotData = skinSlotData.slot;
-		var displayList:Vector<Object> = new Vector<Object>(skinSlotData.displays.length, true);
+		var displayList:Array<Object> = new Array<Object>();
 		
 		#if (starling >= "2.0")
 		slot._indexData = new IndexData();
