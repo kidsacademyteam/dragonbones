@@ -202,12 +202,9 @@ import dragonBones.textures.TextureData;
 		
 		if (Reflect.hasField(rawData, DataParser.ANIMATION))
 		{
-			for (animationObject in cast(Reflect.field(rawData, DataParser.ANIMATION), Array<Dynamic>))
-			{
-				armature.addAnimation(_parseAnimation(animationObject));
-			}
+			parseAnimation(cast(Reflect.field(rawData, DataParser.ANIMATION), Array<Dynamic>), armature);
 		}
-		
+
 		if (Reflect.hasField(rawData, DataParser.ACTIONS) || Reflect.hasField(rawData, DataParser.DEFAULT_ACTIONS))
 		{
 			_parseActionData(rawData, armature.actions, null, null);
@@ -222,6 +219,12 @@ import dragonBones.textures.TextureData;
 		_rawBones.length = 0;
 		
 		return armature;
+	}
+
+	private function parseAnimation(arrAnimations:Array<Dynamic>, armatureRef:ArmatureData):Void {
+		for (animationObject in arrAnimations){
+			armatureRef.addAnimation(_parseAnimation(animationObject));
+		}
 	}
 	
 	/**
