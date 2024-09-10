@@ -8,7 +8,7 @@ import openfl.geom.Point;
  * 2D 变换。
  * @version DragonBones 3.0
  */
-@:allow(dragonBones) @:final class Transform
+@:allow(dragonBones) final class Transform
 {
 	/**
 	 * @private
@@ -84,7 +84,7 @@ import openfl.geom.Point;
 	/**
 	 * @private
 	 */
-	@:final public #if !js inline #end function copyFrom(value:Transform):Transform
+	final public #if !js inline #end function copyFrom(value:Transform):Transform
 	{
 		x = value.x;
 		y = value.y;
@@ -98,7 +98,7 @@ import openfl.geom.Point;
 	/**
 	 * @private
 	 */
-	@:final public #if !js inline #end function identity():Transform
+	final public #if !js inline #end function identity():Transform
 	{
 		x = y = skewX = skewY = 0.0;
 		scaleX = scaleY = 1.0;
@@ -108,7 +108,7 @@ import openfl.geom.Point;
 	/**
 	 * @private
 	 */
-	@:final public #if !js inline #end function add(value:Transform):Transform
+	final public #if !js inline #end function add(value:Transform):Transform
 	{
 		x += value.x;
 		y += value.y;
@@ -122,7 +122,7 @@ import openfl.geom.Point;
 	/**
 	 * @private
 	 */
-	@:final public #if !js inline #end function minus(value:Transform):Transform
+	final public #if !js inline #end function minus(value:Transform):Transform
 	{
 		x -= value.x;
 		y -= value.y;
@@ -136,7 +136,7 @@ import openfl.geom.Point;
 	/**
 	 * @private
 	 */
-	@:final public #if !js inline #end function fromMatrix(matrix:Matrix):Transform
+	final public #if !js inline #end function fromMatrix(matrix:Matrix):Transform
 	{
 		var PI_Q:Float = Math.PI * 0.25;
 		
@@ -198,7 +198,7 @@ import openfl.geom.Point;
 	 * 转换为矩阵。
 	 * @version DragonBones 3.0
 	 */
-	@:final public #if !js inline #end function toMatrix(matrix:Matrix):Transform
+	final public #if !js inline #end function toMatrix(matrix:Matrix):Transform
 	{
 		if (skewX != 0.0 || skewY != 0.0) 
 		{

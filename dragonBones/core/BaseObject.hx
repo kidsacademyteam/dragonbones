@@ -158,7 +158,7 @@ import openfl.Vector;
 	 * 清除数据并返还对象池。
 	 * @version DragonBones 4.5
 	 */
-	@:final public function returnToPool():Void
+	final public function returnToPool():Void
 	{
 		_onClear();
 		_returnObject(this);
